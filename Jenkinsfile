@@ -22,7 +22,7 @@ pipeline{
         
         stage('Docker Build'){
             steps{
-                sh "docker build . -t Rapixar/hariapp:${DOCKER_TAG} "
+                sh "docker build . -t rapixar/hariapp:${DOCKER_TAG} "
             }
         }
         
