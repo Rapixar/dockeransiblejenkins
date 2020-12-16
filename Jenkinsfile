@@ -29,7 +29,7 @@ pipeline{
         stage('DockerHub Push'){
             steps{
                 withCredentials([string(credentialsId: 'docker-hub', variable: 'dockerHubPwd')]) {
-                    sh "docker login -u Rapixar -p ${dockerHubPwd}"
+                    sh "docker login -u rapixar -p ${dockerHubPwd}"
                 }
                 
                 sh "docker push kammana/hariapp:${DOCKER_TAG} "
