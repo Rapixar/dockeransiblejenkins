@@ -29,17 +29,17 @@ pipeline{
         stage('DockerHub Push'){
             steps{
                 withCredentials([string(credentialsId: 'docker-hub', variable: 'dockerHubPwd')]) {
-                    sh "docker login -u kammana -p ${dockerHubPwd}"
+                    sh "docker login -u Rapixar -p ${dockerHubPwd}"
                 }
                 
                 sh "docker push kammana/hariapp:${DOCKER_TAG} "
             }
         }
         
-        stage('Docker Deploy'){
-            steps{
-              ansiblePlaybook credentialsId: 'dev-server', disableHostKeyChecking: true, extras: "-e DOCKER_TAG=${DOCKER_TAG}", installation: 'ansible', inventory: 'dev.inv', playbook: 'deploy-docker.yml'
-            }
+        //stage('Docker Deploy'){
+            //steps{
+          //    ansiblePlaybook credentialsId: 'dev-server', disableHostKeyChecking: true, extras: "-e DOCKER_TAG=${DOCKER_TAG}", installation: 'ansible', inventory: 'dev.inv', playbook: 'deploy-docker.yml'
+            //}
         }
     }
 }
