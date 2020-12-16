@@ -32,7 +32,7 @@ pipeline{
                     sh "docker login -u rapixar -p ${dockerHubPwd}"
                 }
                 
-                sh "docker push kammana/hariapp:${DOCKER_TAG} "
+                sh "docker push rapixar/hariapp:${DOCKER_TAG} "
             }
         }
         
